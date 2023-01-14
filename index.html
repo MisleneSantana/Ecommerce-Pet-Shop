@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/database.js" defer></script>
+    <script src="js/index.js" defer></script>
+
+    <title>S8-01 | Projeto Front End: E-commerce Dog Store</title>
+</head>
+
+<body>
+
+    <header class="container-cabecalho">
+        <div class="img-logo">
+            <img src="#" alt="Logo">
+        </div>
+        <nav class="menu-navegacao">
+            <a href="#" target="_self"><img src="https://cdn-icons-png.flaticon.com/128/3659/3659404.png" alt="Icone">
+                <p>Todos</p>
+            </a>
+            <a href="#" target="_self"><img src="https://cdn-icons-png.flaticon.com/128/846/846296.png" alt="Icone">
+                <p>Capas Protetoras Pet para Carro</p>
+            </a>
+            <a href="#" target="_self"><img src="https://cdn-icons-png.flaticon.com/128/5374/5374185.png" alt="Icone">
+                <p>Coleiras, Peitorais e Guias para cães</p>
+            </a>
+            <a href="#" target="_self"><img src="https://cdn-icons-png.flaticon.com/128/3636/3636236.png" alt="Icone">
+                <p>Acessórios Pet</p>
+            </a>
+        </nav>
+    </header>
+
+    <div id="container-principal">
+
+        <aside>
+
+            <section class="search-itens">
+                <input class="search-entry" type="text" placeholder="Digite aqui o que o seu DOG precisa...">
+                <button id="button-search"><img class="imgButtonSearch"
+                        src="https://cdn-icons-png.flaticon.com/128/4044/4044476.png" alt="Lupa de busca"></button>
+            </section>
+
+            <section class="shopping-cart">
+
+                <div class="header-cart">
+                    <img class="img-titleCart" src="https://cdn-icons-png.flaticon.com/128/1687/1687973.png" alt="Logo">
+                    <div class="titleCart">
+                        <h3>MEU CARRINHO</h3>
+                    </div>
+                </div>
+
+                <div id="empty-cart">
+                    <h3>Carrinho DOG Vazio</h3>
+                    <p>Adicione itens</p>
+                </div>
+
+            </section>
+
+            <div id="add-intesToCart">
+
+                <div class="main-cart">
+                    <div class="img_main-cart">
+                        <img src="https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg" alt="Produto">
+                    </div>
+                    <div class="texts_main-cart">
+                        <h4>Capa protetora impermeável Basic</h4>
+                        <small>R$ 189.90</small>
+                        <button id="removeItemCart">Remover Dog Item</button>
+                    </div>
+                </div>
+                <div class="amount-cart">
+                    <small>Quantidade:</small>
+                    <small>0</small>
+                </div>
+                <div class="subtotal-cart">
+                    <h3>Total:</h3>
+                    <p>R$ 0</p>
+                </div>
+                <div class="buttonCheckout-cart">
+                    <button>FINALIZAR COMPRA</button>
+                </div>
+
+            </div>
+
+            <div class="extra">
+                <img src="img/Card - Section_Extra.png" alt="#">
+            </div>
+
+            </section>
+
+        </aside>
+
+        <main class="container-listaProdutos">
+
+            <h2>A MELHOR DOG STORE ONLINE DO BRASIL</h2>
+
+            <ul class="listaProdutosUl">
+
+                <li id="dogItem_1">
+                    <img src="https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg" alt="Dog">
+                    <small class=" tagCategoria">Capas Protetoras Pet para Carro</small>
+                    <h4>Capa protetora Basic</h4>
+                    <p>Uma capa básica e perfeita para quem leva seu cachorro no carro...</p>
+                    <small>R$ 189.90</small>
+                    <button id="add_1" type="button" class="itemButton"><img
+                            src="https://cdn-icons-png.flaticon.com/128/1687/1687973.png" alt="Icone">COMPRAR</button>
+
+                </li>
+                <li id="dogItem_2">
+                    <img src="https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg" alt="Dog">
+                    <small class=" tagCategoria">Capas Protetoras Pet para Carro</small>
+                    <h4>Capa protetora Premium</h4>
+                    <p>Torne os passeios de carro com seu pet mais agradáveis com a capa...</p>
+                    <small>R$ 289.90</small>
+                    <button id="add_2" type="button" class="itemButton"><img
+                            src="https://cdn-icons-png.flaticon.com/128/1687/1687973.png" alt="Icone">COMPRAR</button>
+
+                </li>
+                <li id="dogItem_3">
+                    <img src="https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg" alt="Dog">
+                    <small class=" tagCategoria">Coleiras, Peitorais e Guias para cães</small>
+                    <h4>Guia Longa Classic</h4>
+                    <p>Uma guia básica para o dia a dia. Resistente, confortável e segura...</p>
+                    <small>R$ 22.90</small>
+                    <button id="add_3" type="button" class="itemButton"><img
+                            src="https://cdn-icons-png.flaticon.com/128/1687/1687973.png" alt="Icone">COMPRAR</button>
+
+                </li>
+                <li id="dogItem_4">
+                    <img src="https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg" alt="Dog">
+                    <small class=" tagCategoria">Coleiras, Peitorais e Guias para cães</small>
+                    <h4>Peitoral antipuxão</h4>
+                    <p>Tenha um peitoral para o passeio diário do seu cachorro...</p>
+                    <small>R$ 99.90</small>
+                    <button id="add_4" type="button" class="itemButton"><img
+                            src="https://cdn-icons-png.flaticon.com/128/1687/1687973.png" alt="Icone">COMPRAR</button>
+
+                </li>
+                <li id="dogItem_5">
+                    <img src="https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg" alt="Dog">
+                    <small class=" tagCategoria">Acessórios Pet</small>
+                    <h4>Comedouro Interativo Lento</h4>
+                    <p>Seu cachorro come mais devagar, pois a ração fica distribuída...</p>
+                    <small>R$ 32.90</small>
+                    <button id="add_5" type="button" class="itemButton"><img
+                            src="https://cdn-icons-png.flaticon.com/128/1687/1687973.png" alt="Icone">COMPRAR</button>
+
+                </li>
+                <li id="dogItem_6">
+                    <img src="https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg" alt="Dog">
+                    <small class=" tagCategoria">Acessórios Pet</small>
+                    <h4>Comedouro Funcional Alto</h4>
+                    <p>Com design exclusivo e ergonomia perfeita...</p>
+                    <small>R$ 36.90</small>
+                    <button id="add_6" type="button" class="itemButton"><img
+                            src="https://cdn-icons-png.flaticon.com/128/1687/1687973.png" alt="Icone">COMPRAR</button>
+
+                </li>
+
+            </ul>
+
+        </main>
+
+    </div>
+
+    <footer class="footer">
+
+    </footer>
+</body>
+
+</html>
