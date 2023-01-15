@@ -1,62 +1,68 @@
 const produtos = [
   {
     id: 1,
-    img: "",
-    nomeItem: "Capa protetora impermeável Basic",
+    img: "https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg",
+    nomeItem: "Capa protetora Basic",
     description:
-      "Uma capa básica e perfeita para o dia a dia de quem leva seu cachorro no carro...",
+      "Uma capa básica e perfeita para quem leva seu cachorro no carro...",
     valor: 189.90,
-    addToCart: "Adicionar ao carrinho",
+    addToCart: "COMPRAR",
     tagCategoria: ["Capas Protetoras Pet para Carro"],
   },
   {
     id: 2,
-    img: "",
-    nomeItem: "Capa protetora impermeável Premium",
+    img: "https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg",
+    nomeItem: "Capa protetora Premium",
     description:
-      "Torne os passeios de carro com seu pet mais fáceis, higiênicos e agradáveis com a exclusiva capa...",
+      "Torne os passeios de carro com seu pet mais agradáveis com a capa...",
     valor: 289.90,
-    addToCart: "Adicionar ao carrinho",
+    addToCart: "COMPRAR",
     tagCategoria: ["Capas Protetoras Pet para Carro"],
   },
   {
     id: 3,
-    img: "",
+    img: "https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg",
     nomeItem: "Guia Longa Classic",
     description:
       "Uma guia básica para o dia a dia. Resistente, confortável e segura...",
     valor: 22.90,
-    addToCart: "Adicionar ao carrinho",
+    addToCart: "COMPRAR",
     tagCategoria: ["Coleiras, Peitorais e Guias para cães"],
   },
   {
     id: 4,
-    img: "",
+    img: "https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg",
     nomeItem: "Peitoral antipuxão",
     description:
-      "Tenha um peitoral para o passeio diário do seu cachorro e acabe com os puxões...",
+      "Tenha um peitoral para o passeio diário do seu cachorro...",
     valor: 99.90,
-    addToCart: "Adicionar ao carrinho",
+    addToCart: "COMPRAR",
     tagCategoria: ["Coleiras, Peitorais e Guias para cães"],
   },
   {
     id: 5,
-    img: "",
+    img: "https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg",
     nomeItem: "Comedouro Interativo Lento",
     description:
-      "A ração fica distribuída em divisões estreitas e isso faz com que seu cachorro coma mais devagar...",
+      "Seu cachorro come mais devagar, pois a ração fica distribuída...",
     valor: 32.90,
-    addToCart: "Adicionar ao carrinho",
+    addToCart: "COMPRAR",
     tagCategoria: ["Acessórios Pet"],
   },
   {
     id: 6,
-    img: "",
-    nomeItem: "Comedouro Funcional Alto Lento",
+    img: "https://http2.mlstatic.com/D_850678-MLB48028455264_102021-O.jpg",
+    nomeItem: "Comedouro Funcional Alto",
     description:
-      "Perfeito para alimentar e desestressar seu cachorro ao mesmo tempo. Com design exclusivo e ergonomia perfeita...",
+      "Com design exclusivo e ergonomia perfeita...",
     valor: 36.90,
-    addToCart: "Adicionar ao carrinho",
+    addToCart: "COMPRAR",
     tagCategoria: ["Acessórios Pet"],
   },
 ];
+
+// const categoria = {
+//   capas: 'Capas Protetoras Pet para Carro',
+//   coleiras: 'Coleiras, Peitorais e Guias para cães',
+//   acessorios: 'Acessórios Pet',
+// }
