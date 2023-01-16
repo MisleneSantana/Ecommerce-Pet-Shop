@@ -56,7 +56,7 @@ function renderizaCardsVitrine(lista) {
         button.id = 'add_' + itemLista.id;
         button.type = 'button';
         button.setAttribute('class', 'itemButton');
-        imgButon.src = 'https://cdn-icons-png.flaticon.com/128/1687/1687973.png';
+        imgButon.src = 'img/sacola-carrinho.png';
         imgButon.alt = 'Icone';
         button.innerHTML = itemLista.addToCart;
 
@@ -68,7 +68,7 @@ function renderizaCardsVitrine(lista) {
     return itensUl;
 }
 let resultCardsVitrine = renderizaCardsVitrine(produtos);
-console.log(resultCardsVitrine);
+// console.log(resultCardsVitrine);
 
 function renderizaCardsPorCategoria() {
 
@@ -79,19 +79,22 @@ function renderizaCardsPorCategoria() {
 
     categTodos.addEventListener('click', function (e) {
         renderizaCardsVitrine(listaOrdemCateg);
+        eventoBotoesComprar(listaOrdemCateg);
     })
 
     categCapas.addEventListener('click', function (e) {
         renderizaCardsVitrine(categoriaCapas);
-
+        eventoBotoesComprar(categoriaCapas);
     });
 
     categColeiras.addEventListener('click', function (e) {
         renderizaCardsVitrine(categoriaColeiras);
+        eventoBotoesComprar(categoriaColeiras);
     });
 
     categAcessorios.addEventListener('click', function (e) {
         renderizaCardsVitrine(categoriaAcessorios);
+        eventoBotoesComprar(categoriaAcessorios);
     });
 }
 let result = renderizaCardsPorCategoria();
@@ -119,7 +122,6 @@ function createInputBusca() {
 }
 createInputBusca();
 
-
 let inputBusca = document.querySelector('.search-entry');
 let btnBuscar = document.querySelector('#button-search');
 
@@ -145,6 +147,7 @@ function search() {
 }
 search();
 btnBuscar.addEventListener('click', search);
+btnBuscar.addEventListener('click', eventoBotoesComprar);
 
 function createCartEmpty() {
 
@@ -156,7 +159,7 @@ function createCartEmpty() {
     let divTitleHeaderCart = document.createElement('div');
     let h3HeaderCart = document.createElement('h3');
     let divEmptyCart = document.createElement('div');
-    let h3EmptyCart = document.createElement('h3');
+    // let h3EmptyCart = document.createElement('h3');
     let pEmptyCart = document.createElement('p');
 
     let divAmountCart = document.createElement('div');
@@ -171,12 +174,12 @@ function createCartEmpty() {
     section.setAttribute('class', 'shopping-cart');
     divHeaderCart.setAttribute('class', 'header-cart');
     imgHeaderCart.setAttribute('class', 'img-titleCart');
-    imgHeaderCart.src = 'https://cdn-icons-png.flaticon.com/128/1687/1687973.png';
+    imgHeaderCart.src = 'img/sacola-carrinho.png';
     imgHeaderCart.alt = 'Logo';
     divTitleHeaderCart.setAttribute('class', 'titleCart');
     h3HeaderCart.innerHTML = 'MEU CARRINHO';
     divEmptyCart.id = 'empty-cart';
-    h3EmptyCart.innerHTML = 'Carrinho DOG Vazio';
+    // h3EmptyCart.innerHTML = 'Carrinho DOG Vazio';
     pEmptyCart.innerHTML = 'Adicione itens';
 
     divAmountCart.setAttribute('class', 'amount-cart');
@@ -194,7 +197,7 @@ function createCartEmpty() {
     menuLateral.appendChild(section);
     section.append(divHeaderCart, divEmptyCart, divAmountCart, divSubtotalCart, divCheckoutCart);
     divHeaderCart.append(imgHeaderCart, divTitleHeaderCart, h3HeaderCart);
-    divEmptyCart.append(h3EmptyCart, pEmptyCart);
+    divEmptyCart.appendChild(pEmptyCart);
     divAmountCart.append(smallQuantAmountCart, smallValorAmountCart);
     divSubtotalCart.append(h3SubtotalCart, pSubtotalCart);
     divCheckoutCart.appendChild(buttonCheckoutCart);
@@ -208,7 +211,7 @@ function createSectionExtra() {
     let imgSectionExtra = document.createElement('img');
 
     sectionExtra.setAttribute('class', 'extra');
-    imgSectionExtra.src = 'img/Card - Section_Extra.png';
+    imgSectionExtra.src = 'img/Section - Ex.jpg';
     imgSectionExtra.alt = 'Dog';
 
     menuLateral.appendChild(sectionExtra);
@@ -220,34 +223,38 @@ createSectionExtra();
 
 // Aplicando evento button(comprar);
 
-let botoesComprar = document.querySelectorAll('.itemButton');
 let emptyCartCount = 0;
 let soma = 0;
 
-for (let i = 0; i < botoesComprar.length; i++) {
-    let botaoComprar = botoesComprar[i];
+function eventoBotoesComprar() {
 
-    botaoComprar.addEventListener('click', function (e) {
+    let botoesComprar = document.querySelectorAll('.itemButton');
 
-        let idBotaoComprar = (e.target.id);
-        let idSemPrefixo = parseInt(idBotaoComprar[4]);
+    for (let i = 0; i < botoesComprar.length; i++) {
+        let botaoComprar = botoesComprar[i];
 
-        let itemLista = identificaItemLista(idSemPrefixo);
+        botaoComprar.addEventListener('click', function (e) {
 
-        let card = createCardToCart(itemLista);
+            let idBotaoComprar = (e.target.id);
+            let idSemPrefixo = parseInt(idBotaoComprar[4]);
 
-        let emptyCart = document.querySelector('#empty-cart');                  // Anexando os cards ao campo (emptyCart);
-        emptyCart.appendChild(card);
+            let itemLista = identificaItemLista(idSemPrefixo);
 
+            let card = createCardToCart(itemLista);
 
-        emptyCartCount++;                                                       // Atualizando valor contador
-        document.querySelector('#count').innerHTML = `${emptyCartCount}`;       // Atualizando qt no carrinho
+            let emptyCart = document.querySelector('#empty-cart');                  // Anexando os cards ao campo (emptyCart);
+            emptyCart.appendChild(card);
 
-        soma += itemLista.valor;                                                // Atualizando soma
-        document.querySelector('#soma').innerHTML = `R$ ${soma.toFixed(2)}`;    // Atualizando valor no carrinho
+            emptyCartCount++;                                                       // Atualizando valor contador
+            document.querySelector('#count').innerHTML = `${emptyCartCount}`;       // Atualizando qt no carrinho
 
-    });
+            soma += itemLista.valor;                                                // Atualizando soma
+            document.querySelector('#soma').innerHTML = `R$ ${soma.toFixed(2)}`;    // Atualizando valor no carrinho
+
+        });
+    }
 }
+eventoBotoesComprar();
 
 function identificaItemLista(id) {
 
@@ -262,7 +269,6 @@ function identificaItemLista(id) {
 
     return `Erro`;
 }
-
 
 function createCardToCart(itemLista) {
 
@@ -306,8 +312,13 @@ function createCardToCart(itemLista) {
     divTextsMainCart.append(h4MainCart, smallMainCart, buttonMainCart);
 
 
-    // Remover elemento do carrinho:
+    // Remover elemento do carrinho (individualmente):
+
     buttonMainCart.addEventListener('click', function (e) {
+
+        if (listaOrdemCateg.length == 0) {
+            textoCarrinho.style.display = 'flex';
+        }
 
         liItensToCart.remove();
 
@@ -319,7 +330,7 @@ function createCardToCart(itemLista) {
 
         if (emptyCartCount < 1) {
             soma = 0;
-            document.querySelector('#soma').innerHTML = `R$ ${soma.toFixed(2)}`;
+            document.querySelector('#soma').innerHTML = 0;
 
         }
     });
@@ -329,17 +340,31 @@ function createCardToCart(itemLista) {
 // createCardToCart();
 
 
-// Ezvaziar Carrinho:
-let buttonEsvaziarCarrinho = document.querySelector('.button-checkout');
-let li = document.querySelector('.cart');
+// Ezvaziar todos itens do Carrinho (elemento button):
 
-buttonEsvaziarCarrinho.addEventListener('click', function (e) {
+function esvaziarCarrinho() {
 
-    li.remove();
+    let buttonEsvaziarCarrinho = document.querySelector('.button-checkout');
+    let divEmptyCar = document.querySelector('#empty-cart');
 
-});
+    buttonEsvaziarCarrinho.addEventListener('click', function (event) {
 
+        divEmptyCar.innerHTML = '';
+        let h3 = document.createElement('h3');
+        let p = document.createElement('p');
+        h3.innerHTML = 'Carrinho DOG Vazio';
+        p.innerHTML = 'Adicione itens';
+        divEmptyCar.append(h3, p);
 
+        emptyCartCount = 0;
+        document.querySelector('#count').innerHTML = `${emptyCartCount}`;
+
+        soma = 0;
+        document.querySelector('#soma').innerHTML = `${soma}`;
+    });
+
+}
+esvaziarCarrinho();
 
 
 
