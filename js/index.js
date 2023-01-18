@@ -160,7 +160,7 @@ function createCartEmpty() {
     let h3HeaderCart = document.createElement('h3');
     let divEmptyCart = document.createElement('div');
     // let h3EmptyCart = document.createElement('h3');
-    let pEmptyCart = document.createElement('p');
+    // let pEmptyCart = document.createElement('p');
 
     let divAmountCart = document.createElement('div');
     let smallQuantAmountCart = document.createElement('small');
@@ -180,7 +180,7 @@ function createCartEmpty() {
     h3HeaderCart.innerHTML = 'MEU CARRINHO';
     divEmptyCart.id = 'empty-cart';
     // h3EmptyCart.innerHTML = 'Carrinho DOG Vazio';
-    pEmptyCart.innerHTML = 'Adicione itens';
+    // pEmptyCart.innerHTML = 'Adicione itens';
 
     divAmountCart.setAttribute('class', 'amount-cart');
     smallQuantAmountCart.innerHTML = 'Quantidade';
@@ -197,7 +197,7 @@ function createCartEmpty() {
     menuLateral.appendChild(section);
     section.append(divHeaderCart, divEmptyCart, divAmountCart, divSubtotalCart, divCheckoutCart);
     divHeaderCart.append(imgHeaderCart, divTitleHeaderCart, h3HeaderCart);
-    divEmptyCart.appendChild(pEmptyCart);
+    // divEmptyCart.appendChild(pEmptyCart);
     divAmountCart.append(smallQuantAmountCart, smallValorAmountCart);
     divSubtotalCart.append(h3SubtotalCart, pSubtotalCart);
     divCheckoutCart.appendChild(buttonCheckoutCart);
@@ -211,7 +211,7 @@ function createSectionExtra() {
     let imgSectionExtra = document.createElement('img');
 
     sectionExtra.setAttribute('class', 'extra');
-    imgSectionExtra.src = 'img/Section - Ex.jpg';
+    imgSectionExtra.src = 'img/Extra-Rosa.png';
     imgSectionExtra.alt = 'Dog';
 
     menuLateral.appendChild(sectionExtra);
@@ -350,11 +350,11 @@ function esvaziarCarrinho() {
     buttonEsvaziarCarrinho.addEventListener('click', function (event) {
 
         divEmptyCar.innerHTML = '';
-        let h3 = document.createElement('h3');
-        let p = document.createElement('p');
-        h3.innerHTML = 'Carrinho DOG Vazio';
-        p.innerHTML = 'Adicione itens';
-        divEmptyCar.append(h3, p);
+        // let h3 = document.createElement('h3');
+        // let p = document.createElement('p');
+        // h3.innerHTML = 'Carrinho DOG Vazio';
+        // p.innerHTML = 'Adicione itens';
+        // divEmptyCar.append(h3, p);
 
         emptyCartCount = 0;
         document.querySelector('#count').innerHTML = `${emptyCartCount}`;
