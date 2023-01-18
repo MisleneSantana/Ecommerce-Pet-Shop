@@ -372,10 +372,10 @@ esvaziarCarrinho();
 
 //Imagem rotativa - Seção Extra:
 
-let timeRotacao = 2000;
+let tempoRotacao = 2000;
 let indexImagem = 0;
 let imagens = document.querySelectorAll('#extra img');
-let max = imagens.length;
+let maximo = imagens.length;
 
 function trocaImagem() {
 
@@ -383,7 +383,7 @@ function trocaImagem() {
 
     indexImagem++;
 
-    if (indexImagem >= max) {
+    if (indexImagem >= maximo) {
         indexImagem = 0;
     }
 
@@ -391,9 +391,9 @@ function trocaImagem() {
 }
 
 function start() {
-    setInterval(() => {
+    setInterval(function (event) {                                  // Método que faz com que a função seja reexecutada com um intervalo de tempo definido a cada execução.
         trocaImagem();
-    }, timeRotacao);
+    }, tempoRotacao);
 }
 window.addEventListener('load', start);
 
