@@ -209,13 +209,17 @@ function createSectionExtra() {
     let menuLateral = document.querySelector('aside');
     let sectionExtra = document.createElement('section');
     let imgSectionExtra = document.createElement('img');
+    let imgSectionExtra1 = document.createElement('img');
 
-    sectionExtra.setAttribute('class', 'extra');
+    sectionExtra.id = 'extra';
+    imgSectionExtra.setAttribute('class', 'slider');
     imgSectionExtra.src = 'img/Extra-Rosa.png';
     imgSectionExtra.alt = 'Dog';
+    imgSectionExtra1.src = 'img/Extra-Adote.png';
+    imgSectionExtra1.alt = 'Dog';
 
     menuLateral.appendChild(sectionExtra);
-    sectionExtra.appendChild(imgSectionExtra);
+    sectionExtra.append(imgSectionExtra, imgSectionExtra1);
 
     return sectionExtra;
 }
@@ -366,7 +370,32 @@ function esvaziarCarrinho() {
 }
 esvaziarCarrinho();
 
+//Imagem rotativa - Seção Extra:
 
+let timeRotacao = 2000;
+let indexImagem = 0;
+let imagens = document.querySelectorAll('#extra img');
+let max = imagens.length;
+
+function trocaImagem() {
+
+    imagens[indexImagem].classList.remove('selecionado');
+
+    indexImagem++;
+
+    if (indexImagem >= max) {
+        indexImagem = 0;
+    }
+
+    imagens[indexImagem].classList.add('selecionado');
+}
+
+function start() {
+    setInterval(() => {
+        trocaImagem();
+    }, timeRotacao);
+}
+window.addEventListener('load', start);
 
 
 

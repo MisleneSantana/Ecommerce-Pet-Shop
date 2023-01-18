@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family= Zilla família= Zilla+Slab:ital,wght@0,700;1,500 & display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family= Zilla família= Zilla+Slab:ital,wght@0,700;1,500 & display=swap'); */
 /* * {
     border: solid 2px red;
 } */
@@ -311,17 +311,48 @@ aside {
     font-size: 12px;
 }
 
-.extra {
+#extra {
     height: 400px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    position: relative;
 }
 
 
-.extra>img {
+#extra>img {
+    opacity: 0;
+    object-fit: cover;
+    position: absolute;
+
+}
+
+#extra img.slider{
+    opacity: 0;
+}
+
+#extra img.selecionado{
+    opacity: 1;
+}
+
+/* #extra {
+    width: 500px;
+    height: 25vh;
+    max-height: 150px;
+    position: relative;
+}
+
+#extra img {
+    opacity: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 }
+
+#extra img.slider {
+    opacity: 1;
+} */
 
 .container-listaProdutos {
     height: 90%;
