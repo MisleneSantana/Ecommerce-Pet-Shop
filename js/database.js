@@ -9,7 +9,7 @@ const produtos = [
     addToCart: "COMPRAR",
     tagCategoria: ["Capas Protetoras Pet para Carro"],
   },
-  {
+  { 
     id: 2,
     img: "https://ae01.alicdn.com/kf/S5c626a49aade43dc9dc5ac19ee2126f9t.jpg",
     nomeItem: "Capa Protetora Premium",

@@ -4,7 +4,7 @@ let categoriaAcessorios = [];
 let listaOrdemCateg = [];
 
 function organizaTagCategorias(lista) {
-
+ 
     for (let i = 0; i < lista.length; i++) {
 
         let itemLista = lista[i];
