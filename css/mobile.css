@@ -1,0 +1,142 @@
+/* Mobile */
+
+@media screen and (max-width: 900px) {
+
+    body {
+        height: auto;
+        overflow: scroll;
+    }
+
+    .container-cabecalho {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        position: fixed;
+    }
+
+    #container-principal {
+        /* margin-top: 40px; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-listaProdutos {
+        margin-bottom: 55px;
+    }
+
+    .img-logo>img {
+        margin: 0;
+    }
+
+    .img-logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .buttons-mobile {
+        display: flex;
+        margin-right: -25px;
+        gap: 5px;
+    }
+
+    .title-main>h2 {
+        font-size: 14px;
+    }
+
+    .menu-navegacao {
+        /* display: none; */
+        /* No lugar de display:none -> height:0 */
+        height: 0;
+        flex-direction: column;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
+    .menu_navegacao_ocultar {
+        flex-direction: column;
+        height: 17rem;
+        transition: 0.3s;
+    }
+
+    #button_menu-navegacao {
+        padding: 0;
+        background-color: rgb(248, 233, 161);
+        border: 0;
+    }
+
+    #button_menu-navegacao>img {
+        width: 30px;
+        height: 30px;
+    }
+
+    aside {
+        width: 100%;
+        gap: 0;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .search-itens {
+        margin-top: 50px;
+        height: 50px;
+    }
+
+    #button_shopping-cart {
+        background-color: rgb(248, 233, 161);
+        border: 0;
+        height: 50px;
+        width: 50px;
+    }
+
+    #button_shopping-cart>img {
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .shopping-cart {
+        /* display: none; */
+        /* No lugar de display:none -> height:0 */
+        height: 0;
+        overflow: hidden;
+        transition: 0.5s;
+        position: fixed;
+        margin-top: -50px;
+        width: 100%;
+    }
+
+    .shopping_cart_ocultar {
+        height: calc(100vh - 50px - 5vh);
+        transition: 0.5s;
+        margin-top: 50px;
+    }
+
+    .header-cart {
+        height: 5%;
+    }
+
+    #empty-cart {
+        height: 80%;
+    }
+
+    .amount-cart {
+        height: 5%;
+    }
+
+    .subtotal-cart {
+        height: 5%;
+    }
+
+    .buttonCheckout-cart {
+        height: 5%;
+    }
+
+    .redes-sociais {
+        position: fixed;
+        /*Fixa no final*/
+        bottom: 0;
+        height: 5vh;
+    }
+}

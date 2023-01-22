@@ -199,6 +199,32 @@ function createCartEmpty() {
 }
 createCartEmpty();
 
+function createEventHideShoppingCart() {
+
+    let buttonShopingCart = document.querySelector('#button_shopping-cart');
+    let sectionShoppingCart = document.querySelector('.shopping-cart');
+
+    buttonShopingCart.addEventListener('click', function (e) {
+
+        sectionShoppingCart.classList.toggle('shopping_cart_ocultar');
+
+    });
+}
+createEventHideShoppingCart();
+
+function createEventHideMenuNav() {
+
+    let buttonHideMenuNav = document.querySelector('#button_menu-navegacao');
+    let nav = document.querySelector('.menu-navegacao');
+
+    buttonHideMenuNav.addEventListener('click', function (e) {
+
+        nav.classList.toggle('menu_navegacao_ocultar');
+
+    });
+}
+createEventHideMenuNav()
+
 function createSectionExtra() {
 
     let menuLateral = document.querySelector('aside');
