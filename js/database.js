@@ -1,7 +1,7 @@
 const produtos = [
   {
     id: 1,
-    img: "https://ae01.alicdn.com/kf/H22f55df6ed094639b7bf91c6b9a90b46v/-.jpg_Q90.jpg_.webp",
+    img: "../img/img_1.png",
     nomeItem: "Capa Protetora Basic",
     description:
       "Uma capa básica e perfeita para quem leva seu cachorro no carro...",
@@ -11,7 +11,7 @@ const produtos = [
   },
   { 
     id: 2,
-    img: "https://ae01.alicdn.com/kf/S5c626a49aade43dc9dc5ac19ee2126f9t.jpg",
+    img: "../img/img_2.png",
     nomeItem: "Capa Protetora Premium",
     description:
       "Torne os passeios de carro com seu pet mais agradáveis...",
@@ -21,7 +21,7 @@ const produtos = [
   },
   {
     id: 3,
-    img: "https://media.istockphoto.com/id/182389107/photo/red-nylon-leash.jpg?s=612x612&w=0&k=20&c=gDbzF4739XJT_4632tgv7B8Tv8R4PlkRs6nKxMNJSRE=",
+    img: "../img/img_3.png",
     nomeItem: "Guia Longa Classic",
     description:
       "Uma guia básica para o dia a dia. Resistente, confortável e segura...",
@@ -31,7 +31,7 @@ const produtos = [
   },
   {
     id: 4,
-    img: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQd4QZhvcFsR2sxYk7aIgYQrjH4VvDiEYvVZPLzV6B0eu5lvXIttDL_IAQIBG8EviboTXChJ4ul_hW3cmnBhCEnvTmlxHKaN3ZpklPWKq39Cw3ISFf7znm2&usqp=CAE",
+    img: "../img/img_4.png",
     nomeItem: "Peitoral Antipuxão",
     description:
       "Tenha um peitoral para o passeio diário do seu cachorro...",
@@ -41,7 +41,7 @@ const produtos = [
   },
   {
     id: 5,
-    img: "https://www.all4pet.co.il/images/itempics/700603510028_30092020111541_large.jpg",
+    img: "../img/img_5.png",
     nomeItem: "Comedouro Interativo Lento",
     description:
       "Seu cachorro come mais devagar, pois a ração fica distribuída...",
@@ -51,7 +51,7 @@ const produtos = [
   },
   {
     id: 6,
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKBE3NUNgBIYNgt19-XrIipTeSfwxoBolb_Q&usqp=CAU",
+    img: "../img/img_6.png",
     nomeItem: "Comedouro Funcional Alto",
     description:
       "Com design exclusivo e ergonomia perfeita...",
