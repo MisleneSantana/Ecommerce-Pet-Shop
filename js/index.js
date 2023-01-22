@@ -4,7 +4,7 @@ let categoriaAcessorios = [];
 let listaOrdemCateg = [];
 
 function organizaTagCategorias(lista) {
- 
+
     for (let i = 0; i < lista.length; i++) {
 
         let itemLista = lista[i];
@@ -159,8 +159,6 @@ function createCartEmpty() {
     let divTitleHeaderCart = document.createElement('div');
     let h3HeaderCart = document.createElement('h3');
     let divEmptyCart = document.createElement('div');
-    // let h3EmptyCart = document.createElement('h3');
-    // let pEmptyCart = document.createElement('p');
 
     let divAmountCart = document.createElement('div');
     let smallQuantAmountCart = document.createElement('small');
@@ -179,8 +177,6 @@ function createCartEmpty() {
     divTitleHeaderCart.setAttribute('class', 'titleCart');
     h3HeaderCart.innerHTML = 'MEU CARRINHO';
     divEmptyCart.id = 'empty-cart';
-    // h3EmptyCart.innerHTML = 'Carrinho DOG Vazio';
-    // pEmptyCart.innerHTML = 'Adicione itens';
 
     divAmountCart.setAttribute('class', 'amount-cart');
     smallQuantAmountCart.innerHTML = 'Quantidade';
@@ -197,7 +193,6 @@ function createCartEmpty() {
     menuLateral.appendChild(section);
     section.append(divHeaderCart, divEmptyCart, divAmountCart, divSubtotalCart, divCheckoutCart);
     divHeaderCart.append(imgHeaderCart, divTitleHeaderCart, h3HeaderCart);
-    // divEmptyCart.appendChild(pEmptyCart);
     divAmountCart.append(smallQuantAmountCart, smallValorAmountCart);
     divSubtotalCart.append(h3SubtotalCart, pSubtotalCart);
     divCheckoutCart.appendChild(buttonCheckoutCart);
@@ -229,12 +224,14 @@ createSectionExtra();
 
 let emptyCartCount = 0;
 let soma = 0;
+let somaSmallValorMainCart = 0;
 
 function eventoBotoesComprar() {
 
     let botoesComprar = document.querySelectorAll('.itemButton');
 
     for (let i = 0; i < botoesComprar.length; i++) {
+
         let botaoComprar = botoesComprar[i];
 
         botaoComprar.addEventListener('click', function (e) {
@@ -244,15 +241,38 @@ function eventoBotoesComprar() {
 
             let itemLista = identificaItemLista(idSemPrefixo);
 
-            let card = createCardToCart(itemLista);
+            let liCardToCart = document.querySelector('#cart_' + idSemPrefixo);
 
-            let emptyCart = document.querySelector('#empty-cart');                  // Anexando os cards ao campo (emptyCart);
-            emptyCart.appendChild(card);
+            if (liCardToCart == null) {
+
+                let card = createCardToCart(itemLista);
+
+                let emptyCart = document.querySelector('#empty-cart');                  // Anexando os cards ao campo (emptyCart);
+
+                emptyCart.appendChild(card);
+
+                let smallValorMainCart = card.querySelector('.valorMainCart').innerHTML;
+                somaSmallValorMainCart = parseFloat(smallValorMainCart.substring(3));
+
+
+            } else {
+
+                let smallUn = liCardToCart.querySelector('.countUnid');
+                let countUnidade = parseInt(smallUn.innerHTML);
+                countUnidade++;
+                smallUn.innerHTML = countUnidade;
+
+                let smallValorMainCart = liCardToCart.querySelector('.valorMainCart');
+                somaSmallValorMainCart = (itemLista.valor);
+
+                smallValorMainCart.innerHTML = `R$ ${(countUnidade * somaSmallValorMainCart).toFixed(2)}`;
+
+            }
 
             emptyCartCount++;                                                       // Atualizando valor contador
             document.querySelector('#count').innerHTML = `${emptyCartCount}`;       // Atualizando qt no carrinho
 
-            soma += itemLista.valor;                                                // Atualizando soma
+            soma += somaSmallValorMainCart;                                         // Atualizando soma
             document.querySelector('#soma').innerHTML = `R$ ${soma.toFixed(2)}`;    // Atualizando valor no carrinho
 
         });
@@ -288,6 +308,9 @@ function createCardToCart(itemLista) {
     let divTextsMainCart = document.createElement('div');
     let h4MainCart = document.createElement('h4');
     let smallMainCart = document.createElement('small');
+    let divQuantMainCart = document.createElement('div');
+    let smallTextUnidMainCart = document.createElement('small');
+    let smallUnidMainCart = document.createElement('small');
     let buttonMainCart = document.createElement('button');
 
     sectionAddItens.setAttribute('class', 'add-itens');
@@ -300,7 +323,14 @@ function createCardToCart(itemLista) {
     imgMainCart.alt = 'Produto'
     divTextsMainCart.setAttribute('class', 'texts_main-cart');
     h4MainCart.innerHTML = itemLista.nomeItem;
+    divQuantMainCart.setAttribute('class', 'quant_main-cart');
+    smallTextUnidMainCart.innerHTML = 'Un: ';
+    smallUnidMainCart.setAttribute('class', 'countUnid');
+    smallUnidMainCart.innerHTML = '1';
+    smallMainCart.setAttribute('class', 'valorMainCart');
     smallMainCart.innerHTML = `R$ ${itemLista.valor.toFixed(2)}`;
+
+    divQuantMainCart.append(smallTextUnidMainCart, smallUnidMainCart)
 
     buttonMainCart.id = 'remove_' + itemLista.id;
     buttonMainCart.setAttribute('class', 'removeItemCart');
@@ -313,7 +343,7 @@ function createCardToCart(itemLista) {
     liItensToCart.appendChild(divMainCart);
     divMainCart.append(divImgMainCart, divTextsMainCart);
     divImgMainCart.appendChild(imgMainCart);
-    divTextsMainCart.append(h4MainCart, smallMainCart, buttonMainCart);
+    divTextsMainCart.append(h4MainCart, divQuantMainCart, smallMainCart, buttonMainCart);
 
 
     // Remover elemento do carrinho (individualmente):
@@ -324,12 +354,19 @@ function createCardToCart(itemLista) {
             textoCarrinho.style.display = 'flex';
         }
 
-        liItensToCart.remove();
+        if (parseInt(smallUnidMainCart.innerHTML) > 1) {
+
+            smallUnidMainCart.innerHTML = parseInt(smallUnidMainCart.innerHTML) - 1;
+            smallMainCart.innerHTML = `R$ ${(parseFloat(smallMainCart.innerHTML.substring(3)) - parseFloat(itemLista.valor)).toFixed(2)}`;
+
+        } else {
+            liItensToCart.remove();
+        }
 
         emptyCartCount--;                                                        // Atualizando valor contador
         document.querySelector('#count').innerHTML = `${emptyCartCount}`;       // Atualizando qt no carrinho
 
-        soma -= itemLista.valor;                                                 // Atualizando valor total
+        soma -= itemLista.valor;                                                // Atualizando valor total
         document.querySelector('#soma').innerHTML = `R$ ${soma.toFixed(2)}`;    // Printando valor total no carrinho
 
         if (emptyCartCount < 1) {
@@ -354,11 +391,6 @@ function esvaziarCarrinho() {
     buttonEsvaziarCarrinho.addEventListener('click', function (event) {
 
         divEmptyCar.innerHTML = '';
-        // let h3 = document.createElement('h3');
-        // let p = document.createElement('p');
-        // h3.innerHTML = 'Carrinho DOG Vazio';
-        // p.innerHTML = 'Adicione itens';
-        // divEmptyCar.append(h3, p);
 
         emptyCartCount = 0;
         document.querySelector('#count').innerHTML = `${emptyCartCount}`;

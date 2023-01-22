@@ -1,7 +1,7 @@
 const produtos = [
   {
     id: 1,
-    img: "../img/img_1.png",
+    img: "img/img_1.png",
     nomeItem: "Capa Protetora Basic",
     description:
       "Uma capa básica e perfeita para quem leva seu cachorro no carro...",
@@ -11,7 +11,7 @@ const produtos = [
   },
   { 
     id: 2,
-    img: "../img/img_2.png",
+    img: "img/img_2.png",
     nomeItem: "Capa Protetora Premium",
     description:
       "Torne os passeios de carro com seu pet mais agradáveis...",
@@ -21,7 +21,7 @@ const produtos = [
   },
   {
     id: 3,
-    img: "../img/img_3.png",
+    img: "img/img_3.png",
     nomeItem: "Guia Longa Classic",
     description:
       "Uma guia básica para o dia a dia. Resistente, confortável e segura...",
@@ -31,7 +31,7 @@ const produtos = [
   },
   {
     id: 4,
-    img: "../img/img_4.png",
+    img: "img/img_4.png",
     nomeItem: "Peitoral Antipuxão",
     description:
       "Tenha um peitoral para o passeio diário do seu cachorro...",
@@ -41,7 +41,7 @@ const produtos = [
   },
   {
     id: 5,
-    img: "../img/img_5.png",
+    img: "img/img_5.png",
     nomeItem: "Comedouro Interativo Lento",
     description:
       "Seu cachorro come mais devagar, pois a ração fica distribuída...",
@@ -51,7 +51,7 @@ const produtos = [
   },
   {
     id: 6,
-    img: "../img/img_6.png",
+    img: "Kenzie-Academy-Brasil-Developers-m1-capstone-ecommerce-template-Mislene_Santana/img/img_6.png",
     nomeItem: "Comedouro Funcional Alto",
     description:
       "Com design exclusivo e ergonomia perfeita...",
