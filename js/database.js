@@ -51,7 +51,7 @@ const produtos = [
   },
   {
     id: 6,
-    img: "Kenzie-Academy-Brasil-Developers-m1-capstone-ecommerce-template-Mislene_Santana/img/img_6.png",
+    img: "img/img_6.png",
     nomeItem: "Comedouro Funcional Alto",
     description:
       "Com design exclusivo e ergonomia perfeita...",
